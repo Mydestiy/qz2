@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Từ Điển 24 Units (Bộ 2 - Chuẩn Anh-Anh) - Ms Lê Hằng English</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-pastel: #FFF0F5;
+      --bg-gradient: linear-gradient(135deg, #FFE4EC 0%, #FFF0F5 50%, #FDE2E4 100%);
+      --pink-primary: #EC407A;
+      --pink-dark: #AD1457;
+      --pink-light: #FCE4EC;
+      --pink-border: #F8BBD0;
+      --card-bg: #FFFFFF;
+      --text-main: #37474F;
+      --text-muted: #78909C;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Nunito', 'Quicksand', sans-serif;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      color: var(--text-main);
+      padding: 20px 14px 60px;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header-box {
+      background: rgba(255, 255, 255, 0.92);
+      border: 2.5px solid var(--pink-border);
+      border-radius: 26px;
+      padding: 20px 26px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(236, 64, 122, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .teacher-tag {
+      display: inline-block;
+      background: var(--pink-light);
+      color: var(--pink-dark);
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 5px 16px;
+      border-radius: 999px;
+      border: 1.5px solid var(--pink-border);
+      margin-bottom: 8px;
+    }
+
+    .header-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--pink-dark);
+      margin-bottom: 6px;
+    }
+
+    .header-sub {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    /* Controls: Search & Voice status */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      background: rgba(255, 255, 255, 0.88);
+      padding: 12px 18px;
+      border-radius: 20px;
+      border: 2px solid var(--pink-border);
+    }
+
+    .search-wrapper {
+      flex: 1;
+      min-width: 240px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 16px 10px 40px;
+      border-radius: 999px;
+      border: 2px solid var(--pink-border);
+      font-size: 0.98rem;
+      font-weight: 700;
+      outline: none;
+      color: var(--text-main);
+      transition: all 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--pink-primary);
+      box-shadow: 0 0 0 3px rgba(236, 64, 122, 0.15);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1rem;
+    }
+
+    .voice-badge {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--pink-dark);
+      background: var(--pink-light);
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1.5px solid var(--pink-border);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 24 Unit Tabs Grid */
+    .tabs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.85);
+      border: 2px solid var(--pink-border);
+      border-radius: 14px;
+      padding: 9px 10px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: var(--pink-dark);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      text-align: center;
+      box-shadow: 0 3px 0 var(--pink-border);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tab-btn:hover {
+      background: #FFF;
+      transform: translateY(-2px);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, #EC407A, #D81B60);
+      color: #FFFFFF;
+      border-color: #AD1457;
+      box-shadow: 0 4px 0 #880E4F;
+    }
+
+    /* Active Unit Content Box */
+    .unit-banner {
+      background: linear-gradient(135deg, #F48FB1, #EC407A);
+      color: white;
+      padding: 16px 24px;
+      border-radius: 22px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      box-shadow: 0 8px 20px rgba(236, 64, 122, 0.25);
+    }
+
+    .unit-banner-title {
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+
+    .unit-count-pill {
+      background: rgba(255, 255, 255, 0.25);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Vocabulary List Grid */
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 12px;
+    }
+
+    .vocab-card {
+      background: var(--card-bg);
+      border: 2px solid var(--pink-border);
+      border-radius: 18px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 4px 10px rgba(236, 64, 122, 0.05);
+    }
+
+    .vocab-card:hover {
+      transform: translateY(-2px);
+      border-color: #F48FB1;
+      box-shadow: 0 6px 15px rgba(236, 64, 122, 0.12);
+    }
+
+    .vocab-info {
+      flex: 1;
+    }
+
+    .vocab-word-row {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 3px;
+    }
+
+    .vocab-word {
+      font-size: 1.08rem;
+      font-weight: 900;
+      color: #880E4F;
+    }
+
+    .vocab-pos {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: #D81B60;
+      background: #FCE4EC;
+      padding: 2px 8px;
+      border-radius: 8px;
+      border: 1px solid #F8BBD0;
+    }
+
+    .vocab-meaning {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: #455A64;
+      line-height: 1.4;
+    }
+
+    .speak-btn {
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
+      border-radius: 14px;
+      background: var(--pink-light);
+      border: 2px solid var(--pink-border);
+      color: var(--pink-dark);
+      font-size: 1.15rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      box-shadow: 0 3px 0 var(--pink-border);
+    }
+
+    .speak-btn:hover {
+      background: var(--pink-primary);
+      color: white;
+      border-color: var(--pink-dark);
+      transform: scale(1.06);
+    }
+
+    .speak-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 var(--pink-border);
+    }
+
+    .speak-btn.speaking {
+      background: #00C9A7;
+      color: white;
+      border-color: #008770;
+      animation: pulseSpeak 0.6s infinite alternate;
+    }
+
+    @keyframes pulseSpeak {
+      from { transform: scale(1); }
+      to { transform: scale(1.12); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header-box">
+      <div class="teacher-tag">👩‍🏫 Giáo viên tạo: Ms Lê Hằng English</div>
+      <h1 class="header-title">🌸 TỪ ĐIỂN TỪ VỰNG 24 UNITS (VOCABULARY INDEX) 🌸</h1>
+      <div class="header-sub">Toàn vẹn dữ liệu 100% từ sách gốc • Đầy đủ Từ loại & Nghĩa Tiếng Việt • Phát âm chuẩn Anh - Anh (en-GB)</div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" class="search-input" placeholder="Tìm kiếm nhanh từ vựng hoặc nghĩa tiếng Việt trong Unit..." oninput="filterVocab()">
+      </div>
+      <div class="voice-badge">
+        <span>🇬🇧</span> <span>Âm thanh chuẩn British English (en-GB)</span>
+      </div>
+    </div>
+
+    <!-- 24 Tabs -->
+    <div class="tabs-grid" id="tabs-container"></div>
+
+    <!-- Unit Title Banner -->
+    <div class="unit-banner">
+      <div class="unit-banner-title" id="current-unit-title">Unit 1: The Weekend</div>
+      <div class="unit-count-pill" id="current-unit-count">0 từ vựng</div>
+    </div>
+
+    <!-- Vocab Cards Container -->
+    <div class="vocab-grid" id="vocab-container"></div>
+  </div>
+
+  <script>
+    /* =====================================================================
+       TOÀN BỘ 100% DỮ LIỆU TỪ VỰNG CỦA 24 UNITS TỪ 3 ẢNH VOCABULARY INDEX
+       Mỗi mục có định dạng: "Từ gốc|Từ loại|Nghĩa tiếng Việt"
+       ===================================================================== */
+    const rawUnitsData = {
+      1: {
+        title: "Unit 1: The Weekend",
+        items: [
+          "awful|adj.|tồi tệ, kinh khủng",
+          "beach|n.|bãi biển",
+          "bodybuilder|n.|vận động viên thể hình",
+          "bodybuilding|n.|môn tập thể hình",
+          "butterflies|n.|những con bướm / cảm giác bồn chồn",
+          "boring|adj.|nhàm chán, tẻ nhạt",
+          "borrow|v.|vay, mượn",
+          "competition|n.|cuộc thi, sự cạnh tranh",
+          "contest|n.|cuộc thi đấu",
+          "disappointing|adj.|đáng thất vọng",
+          "downtown|n./adv.|khu trung tâm thành phố",
+          "enjoyable|adj.|thú vị, thích thú",
+          "exercise|n./v.|bài tập thể dục / tập thể dục",
+          "exhausted|adj.|kiệt sức, mệt lử",
+          "good-looking|adj.|ưa nhìn, đẹp trai/xinh gái",
+          "mall|n.|trung tâm thương mại",
+          "muscles|n.|cơ bắp",
+          "nephews|n.|các cháu trai (con của anh/chị/em)",
+          "novel|n.|tiểu thuyết",
+          "part|n.|phần, vai diễn",
+          "pleasant|adj.|dễ chịu, thoải mái",
+          "terrific|adj.|tuyệt vời, xuất sắc",
+          "tired|adj.|mệt mỏi",
+          "tiring|adj.|gây mệt mỏi",
+          "ask (someone) out|phr.v.|mời (ai đó) đi hẹn hò",
+          "closest friend|n.|người bạn thân thiết nhất",
+          "forest trail|n.|đường mòn trong rừng",
+          "go on a date|phr.|đi hẹn hò",
+          "go to a movie|phr.|đi xem phim",
+          "go to a nightclub|phr.|đi hộp đêm",
+          "go to the gym|phr.|đi đến phòng tập thể hình",
+          "How come?|expr.|Tại sao thế? / Sao lại vậy?",
+          "I'll bet!|expr.|Tôi cá là vậy! / Chắc chắn rồi!",
+          "nature walk|n.|cuộc đi dạo ngắm thiên nhiên",
+          "outdoor concert|n.|buổi hòa nhạc ngoài trời",
+          "play a sport|phr.|chơi một môn thể thao",
+          "play computer games|phr.|chơi trò chơi trên máy tính",
+          "pop music|n.|nhạc trẻ (nhạc pop)",
+          "pull out|phr.v.|rút ra, nhổ ra, rời bến",
+          "science fiction|n.|khoa học viễn tưởng",
+          "supposed to be|phr.|được cho là, có bổn phận phải",
+          "watch a DVD|phr.|xem đĩa DVD",
+          "watch TV|phr.|xem tivi",
+          "You're kidding!|expr.|Bạn đùa đấy à!"
+        ]
+      },
+      2: {
+        title: "Unit 2: City Transportation",
+        items: [
+          "air-conditioned|adj.|có trang bị máy điều hòa",
+          "carefully|adv.|một cách cẩn thận",
+          "convenient|adj.|thuận tiện, tiện lợi",
+          "dangerously|adv.|một cách nguy hiểm",
+          "emergency|n.|tình trạng khẩn cấp",
+          "expensive|adj.|đắt đỏ",
+          "fare|n.|tiền vé (tàu, xe, phà)",
+          "ferry|n.|chiếc phà",
+          "flight|n.|chuyến bay",
+          "passenger|n.|hành khách",
+          "reasonable|adj.|hợp lý, phải chăng (giá cả)",
+          "rude|adj.|thô lỗ, bất lịch sự",
+          "safe|adj.|an toàn",
+          "subway|n.|tàu điện ngầm",
+          "taxi|n.|xe tắc-xi",
+          "ticket|n.|vé",
+          "uncomfortable|adj.|không thoải mái, bất tiện",
+          "as soon as you can|phr.|ngay khi bạn có thể (càng sớm càng tốt)",
+          "Are you free?|expr.|Bạn có đang rảnh không?",
+          "be in a hurry|phr.|đang vội vã",
+          "catch a train|phr.|bắt một chuyến tàu",
+          "dining car|n.|toa ăn uống trên tàu hỏa",
+          "good/poor condition|phr.|tình trạng tốt / tồi tệ",
+          "Hop in!|expr.|Nhảy lên xe đi!",
+          "just me|phr.|chỉ một mình tôi",
+          "not very often|phr.|không thường xuyên lắm",
+          "seat belts|n.|dây an toàn",
+          "shuttle flight|n.|chuyến bay trung chuyển ngắn",
+          "snack bar|n.|quầy bán đồ ăn nhẹ",
+          "Where to?|expr.|Đi đến đâu đây? (câu hỏi của tài xế taxi)"
+        ]
+      },
+      3: {
+        title: "Unit 3: Neighbors",
+        items: [
+          "anniversary|n.|lễ kỷ niệm",
+          "annoying|adj.|gây khó chịu, phiền phức",
+          "appreciate|v.|trân trọng, cảm kích",
+          "arrogant|adj.|kiêu ngạo, ngạo mạn",
+          "borrow (something)|v.|mượn (thứ gì đó)",
+          "burglar|n.|kẻ trộm đột nhập vào nhà",
+          "considerate|adj.|chu đáo, biết nghĩ cho người khác",
+          "cookout|n.|bữa tiệc nướng ngoài trời",
+          "delivered|v.|được giao tới",
+          "driveway|n.|đường lái xe vào nhà",
+          "elderly|adj.|cao tuổi, lớn tuổi",
+          "gossip|n./v.|chuyện ngồi lê đôi mách / buôn chuyện",
+          "hammer|n.|cái búa",
+          "impolite|adj.|bất lịch sự",
+          "inconsiderate|adj.|thiếu chu đáo, vô tâm",
+          "incredible|adj.|đáng kinh ngạc, tuyệt vời",
+          "invite|v.|mời",
+          "mailbox|n.|hộp thư",
+          "neighbor|n.|người hàng xóm",
+          "neighborhood|n.|khu phố, tình làng nghĩa xóm",
+          "normally|adv.|thông thường",
+          "nosy|adj.|tò mò, hay tọc mạch chuyện người khác",
+          "request|n./v.|lời yêu cầu, đề nghị",
+          "retired|adj.|đã nghỉ hưu",
+          "return (something)|v.|trả lại (thứ gì đó)",
+          "shy|adj.|nhút nhát, rụt rè",
+          "spotless|adj.|sạch bong không tì vết",
+          "upset|adj.|buồn bực, khó chịu",
+          "upstairs|adv./n.|ở trên lầu",
+          "wave|v.|vẫy tay chào",
+          "watching out|phr.v.|coi chừng, cảnh giác",
+          "be off (of work)|phr.|được nghỉ làm",
+          "break in|phr.v.|đột nhập (để ăn trộm)",
+          "by any chance|phr.|liệu có tình cờ... không",
+          "can't stand (someone)|phr.|không thể chịu đựng nổi (ai đó)",
+          "count on (someone)|phr.v.|trông cậy, tin tưởng vào (ai đó)",
+          "day care|n.|nhà trẻ, trung tâm trông trẻ ban ngày",
+          "don't mind (doing something)|phr.|không phiền khi (làm việc gì)",
+          "fit in|phr.v.|hòa nhập được",
+          "I can manage|expr.|Tôi có thể tự xoay xở được",
+          "mind one's own business|phr.|lo chuyện của chính mình (không xen vào việc người khác)",
+          "move in|phr.v.|chuyển đến ở",
+          "not think much of (someone)|phr.|không đánh giá cao (ai đó)",
+          "say \"Hello\"|phr.|chào hỏi",
+          "turn up (the volume)|phr.v.|vặn to (âm lượng)",
+          "work long hours|phr.|làm việc nhiều giờ liền"
+        ]
+      },
+      4: {
+        title: "Unit 4: Celebrations",
+        items: [
+          "anniversary|n.|lễ kỷ niệm",
+          "barbecue|n.|tiệc nướng ngoài trời",
+          "bring|v.|mang đến",
+          "buffet|n.|tiệc đứng tự chọn (búp-phê)",
+          "candles|n.|những ngọn nến",
+          "chocolate|n.|sô-cô-la",
+          "cute|adj.|dễ thương, đáng yêu",
+          "delicious|adj.|ngon miệng",
+          "grill|v./n.|nướng trên vỉ / vỉ nướng",
+          "guest|n.|khách mời",
+          "guitar|n.|đàn ghi-ta",
+          "hold|v.|tổ chức / cầm, nắm",
+          "host|n./v.|chủ nhà, người chủ trì bữa tiệc",
+          "memorize|v.|học thuộc lòng, ghi nhớ",
+          "painted|v./adj.|được sơn, được vẽ",
+          "play (musical instrument)|v.|chơi (nhạc cụ)",
+          "serve|v.|phục vụ (đồ ăn thức uống)",
+          "snack|n.|đồ ăn nhẹ, quà vặt",
+          "turn (20)|v.|bước sang tuổi (20)",
+          "birthday party|n.|bữa tiệc sinh nhật",
+          "blow out|phr.v.|thổi tắt (nến)",
+          "felt like|phr.|cảm thấy thích/muốn",
+          "got to know (someone)|phr.|làm quen và hiểu thêm về (ai đó)",
+          "grill some steaks|phr.|nướng vài miếng bít tết",
+          "home movie|n.|đoạn phim gia đình tự quay",
+          "in a while|phr.|trong một thời gian ngắn tới",
+          "junk food|n.|đồ ăn vặt không tốt cho sức khỏe",
+          "listen to music|phr.|nghe nhạc",
+          "make (something) yourself|phr.|tự tay mình làm (cái gì đó)",
+          "potluck dinner|n.|bữa tiệc tối mỗi người tự nấu một món mang góp chung",
+          "show up|phr.v.|xuất hiện, có mặt",
+          "surprise party|n.|bữa tiệc bất ngờ",
+          "Why don't you...|expr.|Tại sao bạn không... nhỉ? (lời gợi ý)",
+          "You know|expr.|Bạn biết đấy"
+        ]
+      },
+      5: {
+        title: "Unit 5: Restaurants",
+        items: [
+          "asparagus|n.|măng tây",
+          "cheeseburger|n.|bánh mì kẹp thịt bò và phô mai",
+          "chef|n.|đầu bếp trưởng",
+          "Chinese (food)|n.|(món ăn) Trung Hoa",
+          "convenient|adj.|thuận tiện",
+          "décor|n.|cách bài trí, trang trí nội thất",
+          "deserved|v./adj.|xứng đáng nhận được",
+          "downtown|n./adv.|ở khu trung tâm thành phố",
+          "empty|adj.|trống rỗng, vắng khách",
+          "flavor|n.|hương vị, mùi vị",
+          "French (food)|n.|(món ăn) Pháp",
+          "fries|n.|khoai tây chiên",
+          "heat (v.)|v.|hâm nóng, đun nóng",
+          "hurry|v./n.|vội vàng",
+          "immigrants|n.|những người nhập cư",
+          "Japanese (food)|n.|(món ăn) Nhật Bản",
+          "Korean (food)|n.|(món ăn) Hàn Quốc",
+          "lighting|n.|hệ thống ánh sáng",
+          "Mexican (food)|n.|(món ăn) Mexico",
+          "milkshake|n.|sữa lắc",
+          "part-time|adj./adv.|bán thời gian",
+          "polite|adj.|lịch sự, lễ phép",
+          "salt|n.|muối",
+          "server|n.|nhân viên phục vụ bàn",
+          "simple|adj.|đơn giản",
+          "starving|adj.|đói cồn cào, chết đói",
+          "Thai (food)|n.|(món ăn) Thái Lan",
+          "tip|n./v.|tiền boa (tiền thưởng thêm)",
+          "vanilla|n.|hương va-ni",
+          "vegetarian|n./adj.|người ăn chay / món chay",
+          "baked potato|n.|khoai tây bỏ lò (nướng)",
+          "be sick of (something)|phr.|chán ngấy (món gì/điều gì)",
+          "credit card|n.|thẻ tín dụng",
+          "eat out|phr.v.|đi ăn tiệm (ăn ngoài)",
+          "fast food|n.|thức ăn nhanh",
+          "feel like (eating something)|phr.|cảm thấy thèm (ăn món gì đó)",
+          "for a change|phr.|để đổi gió, để thay đổi không khí",
+          "hot sauce|n.|tương ớt cay",
+          "junk food|n.|đồ ăn vặt",
+          "leave a tip|phr.|để lại tiền boa",
+          "make sure|phr.|đảm bảo chắc chắn",
+          "stay home|phr.|ở nhà",
+          "the only trouble|phr.|rắc rối/vấn đề duy nhất là",
+          "wait on (someone)|phr.v.|phục vụ bàn cho (ai đó)",
+          "What's the occasion?|expr.|Nhân dịp đặc biệt gì thế?",
+          "your treat|phr.|bữa này bạn bao nhé / lượt bạn đãi"
+        ]
+      },
+      6: {
+        title: "Unit 6: Gifts",
+        items: [
+          "already|adv.|đã... rồi",
+          "birthdays|n.|những ngày sinh nhật",
+          "bracelet|n.|vòng đeo tay, lắc tay",
+          "convenient|adj.|tiện lợi",
+          "cotton|n.|vải bông (cô-tông)",
+          "elastic|n./adj.|dây thun, có tính co giãn",
+          "glasses|n.|mắt kính / những chiếc ly",
+          "graduation|n.|lễ tốt nghiệp",
+          "imported|adj.|được nhập khẩu",
+          "jewelry|n.|đồ trang sức",
+          "local|adj.|thuộc địa phương",
+          "necklace|n.|dây chuyền, vòng cổ",
+          "necktie|n.|cà vạt",
+          "organic|adj.|hữu cơ",
+          "popular|adj.|phổ biến, được yêu thích",
+          "present|n.|món quà",
+          "salesclerk|n.|nhân viên bán hàng",
+          "shirt|n.|áo sơ mi",
+          "souvenir|n.|quà lưu niệm",
+          "special|adj.|đặc biệt",
+          "teapot|n.|ấm pha trà",
+          "weddings|n.|các đám cưới",
+          "wrapped|v./adj.|được gói, bọc lại",
+          "allergic to (something)|phr.|bị dị ứng với (thứ gì)",
+          "awfully small|phr.|nhỏ một cách kinh khủng (quá nhỏ)",
+          "Father's Day|n.|Ngày của Cha",
+          "go with (something)|phr.v.|hợp với, kết hợp ăn ý với (món đồ gì)",
+          "housewarming party|n.|bữa tiệc tân gia (mừng nhà mới)",
+          "I wonder if...|expr.|Tôi tự hỏi liệu...",
+          "Mother's Day|n.|Ngày của Mẹ",
+          "natural ingredients|n.|các thành phần tự nhiên",
+          "Perfect!|expr.|Hoàn hảo!",
+          "pick (something) out|phr.v.|chọn lựa (món đồ gì) ra",
+          "sound expensive|phr.|nghe có vẻ đắt tiền đấy",
+          "The price is right|expr.|Giá cả rất hợp lý",
+          "think of (doing something)|phr.|nghĩ đến việc (làm gì đó)"
+        ]
+      },
+      7: {
+        title: "Unit 7: Air Travel",
+        items: [
+          "board|v.|lên máy bay / tàu",
+          "bumpy|adj.|xóc nảy, có nhiều nhiễu động (chuyến bay)",
+          "catch|v.|bắt kịp (chuyến bay/tàu)",
+          "clear|adj./v.|quang đãng, rõ ràng / thông quan",
+          "collect|v.|thu thập, lấy (hành lý)",
+          "crowded|adj.|đông đúc",
+          "dry|adj.|khô ráo",
+          "economy|n.|hạng phổ thông (trên máy bay)",
+          "facilities|n.|trang thiết bị, tiện nghi",
+          "fantastic|adj.|tuyệt vời",
+          "fasten|v.|thắt chặt (dây an toàn)",
+          "headphones|n.|tai nghe",
+          "horrible|adj.|kinh khủng, tồi tệ",
+          "immigration|n.|quầy kiểm tra nhập cảnh",
+          "route|n.|tuyến đường bay, lộ trình",
+          "smooth|adj.|êm ái, suôn sẻ",
+          "tasteless|adj.|nhạt nhẽo, vô vị (đồ ăn)",
+          "aisle seat|n.|ghế ngồi cạnh lối đi",
+          "business class|n.|hạng thương gia",
+          "change my seat|phr.|đổi chỗ ngồi của tôi",
+          "check in|phr.v.|làm thủ tục lên máy bay",
+          "customs form|n.|tờ khai hải quan",
+          "Do you mind...|expr.|Bạn có phiền không nếu...",
+          "economy class|n.|hạng ghế phổ thông",
+          "far away|phr.|ở xa",
+          "fill out|phr.v.|điền thông tin vào (biểu mẫu)",
+          "flight attendant|n.|tiếp viên hàng không",
+          "headphones|n.|tai nghe chụp đầu",
+          "on time|phr.|đúng giờ",
+          "overhead compartment|n.|ngăn để hành lý xách tay phía trên đầu",
+          "put your seat forward|phr.|dựng thẳng lưng ghế của bạn lên",
+          "safety instruction card|n.|thẻ hướng dẫn an toàn bay",
+          "seat belt|n.|dây an toàn",
+          "seat number|n.|số ghế ngồi",
+          "seat pocket|n.|túi đựng đồ ở lưng ghế trước",
+          "so-so|adj.|bình thường, tàm tạm",
+          "spring break|n.|kỳ nghỉ xuân",
+          "TV screen|n.|màn hình tivi",
+          "weather report|n.|bản tin dự báo thời tiết",
+          "window seat|n.|ghế ngồi cạnh cửa sổ",
+          "working properly|phr.|hoạt động bình thường/tốt"
+        ]
+      },
+      8: {
+        title: "Unit 8: Mishaps",
+        items: [
+          "apology|n.|lời xin lỗi",
+          "break|v.|làm vỡ, làm hỏng",
+          "charge|v./n.|tính phí, thu tiền",
+          "clogged|adj.|bị tắc nghẽn (ống thoát nước)",
+          "deserted|adj.|vắng tanh, hoang vắng",
+          "directions|n.|lời chỉ đường",
+          "dishwasher|n.|máy rửa bát",
+          "dripping|v.|nhỏ giọt rỉ rả (vòi nước)",
+          "drycleaner|n.|tiệm giặt khô",
+          "flooded|adj.|bị ngập nước, tràn nước",
+          "horrified|adj.|kinh hoàng, hoảng sợ",
+          "ink|n.|mực viết",
+          "locksmith|n.|thợ sửa khóa",
+          "manager|n.|người quản lý",
+          "offend|v.|xúc phạm, làm mất lòng",
+          "offer|v./n.|đề nghị hỗ trợ",
+          "plumber|n.|thợ sửa ống nước",
+          "puddle|n.|vũng nước đọng",
+          "reschedule|v.|dời lịch, sắp xếp lại lịch hẹn",
+          "ruined|adj./v.|bị làm hỏng hoàn toàn",
+          "soaked|adj.|ướt sũng",
+          "soda|n.|nước ngọt có ga",
+          "solution|n.|giải pháp",
+          "spill (something)|v.|làm đổ, làm tràn (chất lỏng)",
+          "suggest|v.|gợi ý, đề xuất",
+          "tray|n.|cái khay bưng đồ",
+          "tricky|adj.|khó nhằn, rắc rối",
+          "trip|v./n.|vấp ngã / chuyến đi",
+          "unfortunately|adv.|thật không may",
+          "catch the bus|phr.|bắt xe buýt",
+          "catch the next one|phr.|bắt chuyến tiếp theo",
+          "checkout counter|n.|quầy thanh toán thu ngân",
+          "dry out|phr.v.|làm khô, phơi khô",
+          "emergency number|n.|số điện thoại khẩn cấp",
+          "flat tire|n.|lốp xe bị xịt (thủng lốp)",
+          "get locked out|phr.|bị khóa trái ở bên ngoài",
+          "get lost|phr.|bị lạc đường",
+          "leave the water running|phr.|để nước chảy quên khóa",
+          "look (something) up|phr.v.|tra cứu (thông tin/từ điển)",
+          "make sense|phr.|có lý, hợp lý",
+          "tow truck|n.|xe cứu hộ kéo xe hỏng"
+        ]
+      },
+      9: {
+        title: "Unit 9: Jobs",
+        items: [
+          "actually|adv.|thực ra, thực sự",
+          "architect|n.|kiến trúc sư",
+          "assistant|n.|trợ lý",
+          "autograph|n.|chữ ký của người nổi tiếng",
+          "bags|n.|những chiếc túi, hành lý",
+          "baker|n.|thợ làm bánh",
+          "bellhop|n.|nhân viên xách hành lý ở khách sạn",
+          "boss|n.|ông chủ, sếp",
+          "call|v./n.|gọi điện",
+          "carry|v.|mang, vác, xách",
+          "chef|n.|đầu bếp trưởng",
+          "client|n.|khách hàng (sử dụng dịch vụ chuyên môn)",
+          "colleagues|n.|đồng nghiệp",
+          "commuting|n./v.|việc đi lại hàng ngày tới chỗ làm",
+          "chauffeur|n.|tài xế riêng",
+          "creative|adj.|sáng tạo",
+          "design (v.)|v.|thiết kế",
+          "drive|v.|lái xe",
+          "hairdresser|n.|thợ làm tóc",
+          "invite|v.|mời",
+          "manager|n.|người quản lý",
+          "mechanical|adj.|thuộc về cơ khí, máy móc",
+          "meetings|n.|các cuộc họp",
+          "newspaper|n.|tờ báo",
+          "online|adj./adv.|trực tuyến",
+          "plenty|n./pron.|nhiều, dồi dào",
+          "quiet|adj.|yên tĩnh",
+          "reporter|n.|phóng viên",
+          "salary|n.|tiền lương hàng tháng",
+          "security|n.|bộ phận an ninh, bảo vệ",
+          "server|n.|nhân viên phục vụ",
+          "vacations|n.|các kỳ nghỉ",
+          "answer the phone|phr.|nghe điện thoại",
+          "auto shop|n.|cửa hàng sửa chữa ô tô",
+          "cash register|n.|máy tính tiền tại quầy thu ngân",
+          "change jobs|phr.|đổi việc, nhảy việc",
+          "flight attendant|n.|tiếp viên hàng không",
+          "go pretty well|phr.|diễn ra khá tốt đẹp/suôn sẻ",
+          "market research|n.|nghiên cứu thị trường",
+          "take a break|phr.|nghỉ giải lao một lát",
+          "TV producer|n.|nhà sản xuất chương trình truyền hình",
+          "working hours|n.|giờ làm việc"
+        ]
+      },
+      10: {
+        title: "Unit 10: Keeping Fit",
+        items: [
+          "aerobics|n.|thể dục nhịp điệu",
+          "beach|n.|bãi biển",
+          "bicycling|n.|môn đạp xe",
+          "courts|n.|sân thi đấu (quần vợt, bóng rổ)",
+          "dangerous|adj.|nguy hiểm",
+          "diet|n.|chế độ ăn kiêng",
+          "equipment|n.|trang thiết bị dụng cụ",
+          "fat|n./adj.|chất béo, mỡ / béo",
+          "golf|n.|môn đánh gôn",
+          "improve|v.|cải thiện, nâng cao",
+          "indoors|adv.|ở trong nhà",
+          "jogging|n.|môn chạy bộ thư giãn",
+          "lessons|n.|các buổi học",
+          "operation|n.|ca phẫu thuật / sự vận hành",
+          "pool|n.|hồ bơi",
+          "ride|v./n.|đạp xe, cưỡi ngựa",
+          "rollerblading|n.|môn trượt patin một hàng bánh",
+          "romantic|adj.|lãng mạn",
+          "sit-ups|n.|bài tập gập bụng",
+          "swimming|n.|môn bơi lội",
+          "track|n.|đường chạy điền kinh",
+          "traffic|n.|giao thông",
+          "volleyball|n.|môn bóng chuyền",
+          "weightlifting|n.|môn cử tạ, tập tạ",
+          "at home|phr.|ở nhà",
+          "be into (something)|phr.|rất thích, đam mê (cái gì đó)",
+          "can't stand|phr.|không thể chịu đựng nổi",
+          "club fee|n.|phí thành viên câu lạc bộ",
+          "get in shape|phr.|lấy lại vóc dáng thon gọn, khỏe mạnh",
+          "get some exercise|phr.|vận động tập thể dục một chút",
+          "give up|phr.v.|từ bỏ, bỏ cuộc",
+          "go out|phr.v.|đi ra ngoài",
+          "health club|n.|câu lạc bộ thể hình và chăm sóc sức khỏe",
+          "lift weights|phr.|nâng tạ, tập tạ",
+          "make (my knees) hurt|phr.|làm đau (đầu gối của tôi)",
+          "New Year's resolution|n.|mục tiêu quyết tâm đầu năm mới",
+          "put on weight|phr.|tăng cân, béo lên",
+          "take up|phr.v.|bắt đầu theo đuổi (một môn thể thao/sở thích)",
+          "used to|phr.|đã từng (thói quen trong quá khứ)"
+        ]
+      },
+      11: {
+        title: "Unit 11: Invitations",
+        items: [
+          "accept|v.|chấp nhận, nhận lời mời",
+          "actually|adv.|thực ra thì",
+          "afterwards|adv.|sau đó",
+          "bowling|n.|môn ném bóng gỗ (bâu-linh)",
+          "bunch (of flowers)|n.|bó (hoa)",
+          "instead|adv.|thay vào đó",
+          "invitation|n.|lời mời, thiệp mời",
+          "opera|n.|nhạc kịch (ô-pê-ra)",
+          "plans|n.|các kế hoạch, dự định",
+          "playing|v.|đang chơi / biểu diễn",
+          "refuse|v.|từ chối",
+          "rent|v.|thuê (phim, nhà, xe)",
+          "soprano|n.|giọng nữ cao (trong nhạc kịch)",
+          "be free|phr.|đang rảnh rỗi",
+          "be out|phr.|đi vắng, ra ngoài",
+          "come over|phr.v.|ghé qua nhà chơi",
+          "I'd love to.|expr.|Tôi rất thích / Tôi rất sẵn lòng.",
+          "Maybe some other time.|expr.|Có lẽ để dịp khác nhé.",
+          "my place|n.|nhà/chỗ ở của tôi",
+          "see a movie|phr.|xem một bộ phim",
+          "stay home|phr.|ở nhà",
+          "That sounds great.|expr.|Nghe tuyệt vời đấy."
+        ]
+      },
+      12: {
+        title: "Unit 12: Campus Life",
+        items: [
+          "appointment|n.|cuộc hẹn gặp",
+          "attractive|adj.|thu hút, hấp dẫn",
+          "biology|n.|môn sinh học",
+          "boring|adj.|nhàm chán",
+          "cafeteria|n.|nhà ăn tự phục vụ, căng-tin trường",
+          "campus|n.|khuôn viên trường đại học",
+          "cell|n.|tế bào (sinh học)",
+          "chemistry|n.|môn hóa học",
+          "classroom|n.|phòng học",
+          "competitive|adj.|có tính cạnh tranh cao",
+          "crowded|adj.|đông đúc",
+          "draft (of a paper)|n.|bản nháp (của một bài tiểu luận)",
+          "essay|n.|bài tiểu luận",
+          "experiment|n.|cuộc thí nghiệm",
+          "genetics|n.|di truyền học",
+          "grade|n.|điểm số / khối lớp",
+          "gym|n.|nhà thi đấu, phòng tập thể hình",
+          "interesting|adj.|thú vị",
+          "lab|n.|phòng thí nghiệm",
+          "lectures|n.|các bài giảng đại học",
+          "lockers|n.|tủ sắt cá nhân có khóa",
+          "logo|n.|biểu trưng (lô-gô)",
+          "major|n./adj.|chuyên ngành chính (ở đại học)",
+          "modern|adj.|hiện đại",
+          "neat|adj.|gọn gàng, ngăn nắp",
+          "outdoor|adj.|ngoài trời",
+          "overcrowded|adj.|quá tải, chật cứng người",
+          "scan|v.|quét hình ảnh / đọc lướt",
+          "schedule|n.|thời khóa biểu, lịch trình",
+          "semester|n.|học kỳ",
+          "slides|n.|các trang trình chiếu / tiêu bản kính hiển vi",
+          "stationery|n.|văn phòng phẩm",
+          "unfair|adj.|không công bằng",
+          "unfriendly|adj.|không thân thiện",
+          "art history|n.|môn lịch sử nghệ thuật",
+          "Be right back.|expr.|Sẽ quay lại ngay lập tức.",
+          "campus bookstore|n.|hiệu sách trong khuôn viên trường",
+          "check (a book) out|phr.v.|làm thủ tục mượn (sách) từ thư viện",
+          "computer lab|n.|phòng thực hành máy tính",
+          "computer science|n.|ngành khoa học máy tính",
+          "discussion group|n.|nhóm thảo luận học tập",
+          "front row|n.|hàng ghế đầu tiên",
+          "not crazy about (something)|phr.|không mấy hào hứng/mặn mà với (cái gì)",
+          "professor's office|n.|văn phòng của giáo sư",
+          "sleeping in|phr.v.|ngủ nướng dậy muộn",
+          "state-of-the-art|adj.|tối tân, hiện đại bậc nhất",
+          "student ID|n.|thẻ sinh viên",
+          "What's the matter?|expr.|Có chuyện gì thế? / Có vấn đề gì vậy?"
+        ]
+      },
+      13: {
+        title: "Unit 13: Hobbies and Pastimes",
+        items: [
+          "adventure|n.|cuộc phiêu lưu",
+          "collecting|n./v.|việc sưu tầm",
+          "concerts|n.|các buổi hòa nhạc",
+          "cooking|n.|việc nấu nướng",
+          "garage|n.|ga-ra để xe",
+          "gardening|n.|công việc làm vườn",
+          "hiking|n.|môn đi bộ đường dài leo núi",
+          "history|n.|môn lịch sử",
+          "hobbies|n.|các sở thích cá nhân",
+          "Mozart|n.|nhà soạn nhạc thiên tài Mozart",
+          "nature|n.|thiên nhiên",
+          "oil (paintings)|n.|(tranh) sơn dầu",
+          "outdoors|adv./n.|ngoài trời",
+          "pastimes|n.|các thú tiêu khiển lúc nhàn rỗi",
+          "retired|adj.|đã nghỉ hưu",
+          "studio|n.|phòng thu, xưởng vẽ",
+          "watercolor (paintings)|n.|(tranh) màu nước",
+          "children's books|n.|sách thiếu nhi",
+          "classical music|n.|nhạc cổ điển",
+          "comic books|n.|truyện tranh",
+          "computer screen|n.|màn hình máy tính",
+          "eat out|phr.v.|đi ăn ngoài",
+          "except me|phr.|ngoại trừ tôi ra",
+          "free time|n.|thời gian rảnh rỗi",
+          "lose interest in (something)|phr.|mất đi sự hứng thú với (thứ gì)",
+          "packed away|phr.v.|đóng gói cất đi",
+          "playing video games|phr.|chơi trò chơi điện tử",
+          "public library|n.|thư viện công cộng",
+          "sit around|phr.v.|ngồi không, ngồi tán gẫu",
+          "stamp albums|n.|các cuốn sổ sưu tập tem",
+          "surfing the Internet|phr.|lướt mạng Internet"
+        ]
+      },
+      14: {
+        title: "Unit 14: Shopping Problems",
+        items: [
+          "bargain (n.)|n.|món hời (mua được giá rẻ)",
+          "bargain (v.)|v.|mặc cả, trả giá",
+          "broken|adj.|bị vỡ, bị hỏng",
+          "buttons|n.|những chiếc cúc áo / nút bấm",
+          "case|n.|vỏ bọc, hộp đựng",
+          "camcorder|n.|máy quay phim cầm tay",
+          "camera|n.|máy chụp ảnh",
+          "damaged|adj.|bị hư hại",
+          "exchange|v./n.|đổi hàng",
+          "faded|adj.|bị phai màu, bạc màu",
+          "guarantee|n./v.|phiếu bảo hành / cam kết bảo đảm",
+          "heel|n.|gót giày",
+          "impossible|adj.|bất khả thi, không thể được",
+          "lock|n./v.|ổ khóa / khóa lại",
+          "long-sleeved|adj.|dài tay (áo)",
+          "missing|adj.|bị thiếu mất, thất lạc",
+          "receipt|n.|hóa đơn, biên lai thanh toán",
+          "refund|n./v.|tiền hoàn lại / hoàn tiền",
+          "repair|v./n.|sửa chữa",
+          "sale|n.|đợt giảm giá khuyến mãi",
+          "shrank|v.|đã bị co rút lại (vải sau khi giặt)",
+          "stain|n.|vết ố bẩn",
+          "sweatshirt|n.|áo nỉ dài tay chui đầu",
+          "be out of (something)|phr.|hết hàng, cạn kiệt (thứ gì)",
+          "changed color|phr.|bị biến đổi màu sắc",
+          "come off|phr.v.|bị bong ra, sứt ra (cúc áo, gót giày)",
+          "compare prices|phr.|so sánh giá cả",
+          "get fed up with (something)|phr.|chán ngấy, phát ngán với (điều gì)",
+          "half the price|phr.|nửa giá (giảm 50%)",
+          "poorly made|phr.|được gia công/sản xuất kém chất lượng",
+          "sold out of (something)|phr.|bán hết sạch (mặt hàng gì)",
+          "wrong size|phr.|sai kích cỡ (nhầm size)"
+        ]
+      },
+      15: {
+        title: "Unit 15: Hotel Services",
+        items: [
+          "bags|n.|túi hành lý",
+          "blanket|n.|chiếc chăn (mền)",
+          "concierge|n.|nhân viên hỗ trợ thông tin khách hàng tại sảnh khách sạn",
+          "delayed|adj.|bị trì hoãn, chậm trễ",
+          "face (the street)|v.|quay mặt hướng ra (phía đường phố)",
+          "flight|n.|chuyến bay",
+          "housekeeping|n.|bộ phận dọn phòng khách sạn",
+          "lasagna|n.|món mì Ý nướng bỏ lò (la-da-nha)",
+          "laundry|n.|dịch vụ giặt ủi / quần áo đem giặt",
+          "letter|n.|lá thư",
+          "light (food)|adj.|(đồ ăn) nhẹ bụng, thanh đạm",
+          "lonely|adj.|cô đơn",
+          "mailbox|n.|thùng thư",
+          "mattress|n.|tấm nệm giường",
+          "meat|n.|thịt",
+          "noisy|adj.|ồn ào",
+          "non-smoking|adj.|không hút thuốc (phòng)",
+          "occupied|adj.|đã có khách ở / đang được sử dụng",
+          "package|n.|bưu kiện, gói hàng",
+          "password|n.|mật khẩu",
+          "pressed|v./adj.|được là/ủi phẳng phiu (quần áo)",
+          "reservation|n.|sự đặt phòng trước",
+          "sauce|n.|nước sốt",
+          "send (something) up|phr.v.|mang/gửi (đồ gì) lên tận phòng",
+          "share|v.|chia sẻ, dùng chung",
+          "snowstorm|n.|bão tuyết",
+          "spaghetti|n.|món mì Ý sợi tròn",
+          "staff|n.|đội ngũ nhân viên",
+          "towel|n.|khăn tắm",
+          "vegetarian|adj./n.|thuộc đồ ăn chay / người ăn chay",
+          "bell captain|n.|tổ trưởng bộ phận hành lý khách sạn",
+          "Can I help you?|expr.|Tôi có thể giúp gì cho quý khách?",
+          "dry cleaned|adj.|được giặt khô",
+          "flat-screen TV|n.|tivi màn hình phẳng",
+          "front desk|n.|quầy lễ tân",
+          "Is there anything else?|expr.|Quý khách có cần thêm gì nữa không ạ?",
+          "room service|n.|dịch vụ phục vụ đồ ăn tận phòng",
+          "spring break|n.|kỳ nghỉ mùa xuân",
+          "wake-up call|n.|cuộc gọi báo thức từ lễ tân"
+        ]
+      },
+      16: {
+        title: "Unit 16: Movies",
+        items: [
+          "action|n.|hành động",
+          "action-packed|adj.|tràn ngập các pha hành động gay cấn",
+          "animation|n.|phim hoạt hình, kỹ xảo hoạt họa",
+          "audience|n.|khán giả",
+          "century|n.|thế kỷ",
+          "chasing|v.|rượt đuổi, truy đuổi",
+          "comedy|n.|phim hài",
+          "cowboy|n.|chàng cao bồi miền Viễn Tây",
+          "danger|n.|sự nguy hiểm",
+          "disappointing|adj.|đáng thất vọng",
+          "dumb|adj.|ngớ ngẩn, dở tệ",
+          "excitement|n.|sự hào hứng, kịch tính",
+          "exit (n.)|n.|lối thoát hiểm, lối ra",
+          "fantastic|adj.|tuyệt vời, xuất sắc",
+          "fast-moving|adj.|có tiết tấu/nhịp phim nhanh",
+          "frightening|adj.|đáng sợ, rùng rợn",
+          "good-looking|adj.|ngoại hình sáng, ưa nhìn",
+          "handsome|adj.|đẹp trai",
+          "hilarious|adj.|cực kỳ vui nhộn, cười ra nước mắt",
+          "horror|n.|thể loại kinh dị",
+          "horse|n.|con ngựa",
+          "kidnapped|v./adj.|bị bắt cóc",
+          "policeman|n.|nam cảnh sát",
+          "romance|n.|sự lãng mạn, phim tình cảm",
+          "scare|v./n.|làm hoảng sợ",
+          "surprise|n./v.|điều bất ngờ",
+          "terrible|adj.|tồi tệ, dở ẹc",
+          "unbelievably|adv.|một cách đáng kinh ngạc, khó tin",
+          "universe|n.|vũ trụ",
+          "vampire|n.|ma cà rồng",
+          "western|n.|phim cao bồi miền Tây",
+          "animated movie|n.|bộ phim hoạt hình",
+          "bank robbery|n.|vụ cướp ngân hàng",
+          "battle scene|n.|cảnh chiến đấu trận mạc",
+          "car chase|n.|màn rượt đuổi bằng ô tô",
+          "clean up the town|phr.|quét sạch bọn tội phạm khỏi thị trấn",
+          "come out of the ground|phr.|trồi lên từ dưới lòng đất",
+          "go crazy|phr.|phát điên, trở nên cuồng loạn",
+          "How was the movie?|expr.|Bộ phim thế nào? (Có hay không?)",
+          "make people laugh|phr.|làm cho mọi người cười",
+          "play opposite|phr.|đóng cặp đối diễn với (diễn viên nào)",
+          "ride a horse (v.)|phr.|cưỡi ngựa",
+          "science fiction|n.|phim khoa học viễn tưởng",
+          "show times|n.|lịch chiếu phim, giờ chiếu",
+          "soundtrack|n.|nhạc phim",
+          "special effects|n.|hiệu ứng kỹ xảo đặc biệt",
+          "worth the price|phr.|đáng đồng tiền vé bỏ ra"
+        ]
+      },
+      17: {
+        title: "Unit 17: Fears",
+        items: [
+          "bats|n.|những con dơi",
+          "biology|n.|môn sinh học",
+          "brake|n./v.|phanh (thắng) xe",
+          "button|n.|nút bấm, cúc áo",
+          "coat|n.|áo khoác ngoài",
+          "cockroaches|n.|những con gián",
+          "confidence|n.|sự tự tin",
+          "creepy|adj.|ghê rợn, làm nổi da gà",
+          "downstairs|adv.|ở dưới tầng dưới",
+          "drown|v.|chết đuối, đuối nước",
+          "engineer|n.|kỹ sư",
+          "freeways|n.|đường cao tốc",
+          "frightened|adj.|hoảng sợ, khiếp đảm",
+          "garden|n.|khu vườn",
+          "heights|n.|độ cao (nỗi sợ độ cao)",
+          "hose|n.|vòi xịt nước bằng cao su",
+          "insect|n.|côn trùng",
+          "jellyfish|n.|con sứa biển",
+          "lab|n.|phòng thí nghiệm",
+          "land (n.)|n.|mặt đất, đất liền",
+          "mice|n.|những con chuột (số nhiều của mouse)",
+          "nearly|adv.|gần như, suýt nữa",
+          "nervous|adj.|lo lắng, bồn chồn",
+          "poisonous|adj.|có độc, kịch độc",
+          "realize|v.|nhận ra",
+          "scream|v./n.|la hét thất thanh",
+          "seaweed|n.|rong biển, tảo biển",
+          "shark|n.|cá mập",
+          "snakes|n.|những con rắn",
+          "spiders|n.|những con nhện",
+          "traffic|n.|giao thông",
+          "waves|n.|những con sóng biển",
+          "Are you afraid of anything?|expr.|Bạn có sợ thứ gì không?",
+          "be afraid of|phr.|sợ hãi điều gì",
+          "be terrified of (something)|phr.|cực kỳ khiếp sợ (thứ gì)",
+          "don't mind (something)|phr.|không ngại, không sợ (thứ gì)",
+          "get on (a plane, a bus, etc.)|phr.v.|bước lên (máy bay, xe buýt...)",
+          "get stuck|phr.|bị mắc kẹt",
+          "knock (someone) over|phr.v.|tông/xô ngã (ai đó)",
+          "roller coasters|n.|tàu lượn siêu tốc",
+          "scuba diving|n.|môn lặn biển sâu có bình dưỡng khí",
+          "step on (something)|phr.v.|giẫm chân lên (thứ gì)",
+          "swim laps|phr.|bơi nhiều vòng dọc theo hồ bơi",
+          "take care of (oneself)|phr.|tự chăm sóc/bảo vệ (bản thân)"
+        ]
+      },
+      18: {
+        title: "Unit 18: Phone Messages",
+        items: [
+          "cash|n.|tiền mặt",
+          "deliver|v.|giao hàng, chuyển phát",
+          "extension|n.|số máy lẻ nội bộ",
+          "mailroom|n.|phòng văn thư (nhận và phân phát thư từ)",
+          "neighbor|n.|người hàng xóm",
+          "package|n.|kiện hàng, gói đồ",
+          "repair|v./n.|sửa chữa",
+          "tip (v.)|v.|boa tiền, thưởng thêm tiền",
+          "auto repair|n.|sửa chữa ô tô",
+          "average number|n.|con số trung bình",
+          "be in (to have arrived)|phr.|đã có mặt ở văn phòng/nhà",
+          "be in touch|phr.|giữ liên lạc, sẽ liên hệ lại",
+          "boat trip|n.|chuyến đi chơi bằng thuyền",
+          "Call me.|expr.|Gọi điện cho tôi nhé.",
+          "cell phone|n.|điện thoại di động",
+          "confirm (a flight, reservation)|v.|xác nhận lại (chuyến bay, lịch đặt chỗ)",
+          "credit card|n.|thẻ tín dụng",
+          "dental appointment|n.|lịch hẹn khám nha khoa",
+          "give (someone) a call|phr.|gọi điện thoại cho (ai đó)",
+          "make a phone call|phr.|thực hiện một cuộc gọi điện thoại",
+          "memorize|v.|ghi nhớ thuộc lòng",
+          "pick (something) up|phr.v.|đến lấy (đồ đạc) / nhấc máy",
+          "receive a phone call|phr.|nhận được một cuộc gọi",
+          "shuttle bus|n.|xe buýt trung chuyển",
+          "text message|n.|tin nhắn văn bản",
+          "travel agency|n.|công ty đại lý du lịch"
+        ]
+      },
+      19: {
+        title: "Unit 19: Touring a City",
+        items: [
+          "built|v.|được xây dựng",
+          "cemetery|n.|nghĩa trang",
+          "charge|v./n.|thu phí vé vào cửa",
+          "delicious|adj.|ngon miệng",
+          "exhausted|adj.|mệt nhoài, kiệt sức",
+          "gate|n.|cổng",
+          "gifts|n.|quà tặng",
+          "glamorous|adj.|hào nhoáng, lộng lẫy",
+          "grow|v.|trồng trọt, phát triển",
+          "iron|n.|sắt / bàn là",
+          "itinerary|n.|lịch trình chi tiết chuyến tham quan",
+          "jokes|n.|những câu chuyện cười",
+          "local|adj.|địa phương, bản địa",
+          "mansion|n.|biệt thự lớn, dinh thự",
+          "market|n.|khu chợ",
+          "museums|n.|các viện bảo tàng",
+          "peanuts|n.|đậu phộng (lạc)",
+          "picnic|n.|buổi dã ngoại ngoài trời",
+          "reasonable|adj.|hợp lý, vừa túi tiền",
+          "religion|n.|tôn giáo",
+          "rink|n.|sân trượt băng",
+          "souvenirs|n.|đồ lưu niệm",
+          "stars (famous people)|n.|các ngôi sao (người nổi tiếng)",
+          "stuffy|adj.|ngột ngạt, bí bách",
+          "telescope|n.|kính thiên văn",
+          "temple|n.|ngôi đền, ngôi chùa",
+          "tour|n./v.|chuyến tham quan du lịch",
+          "van|n.|xe tải nhỏ, xe khách cỡ nhỏ (7-16 chỗ)",
+          "works (of art) (n.)|n.|những tác phẩm (nghệ thuật)",
+          "zoo|n.|sở thú",
+          "art museum|n.|bảo tàng mỹ thuật",
+          "baseball player|n.|cầu thủ bóng chày",
+          "be worth doing|phr.|đáng để làm, rất bõ công trải nghiệm",
+          "bus tour|n.|chuyến tham quan thành phố bằng xe buýt",
+          "cultural event|n.|sự kiện văn hóa",
+          "How was the tour?|expr.|Chuyến tham quan thế nào?",
+          "ice skating|n.|môn trượt băng",
+          "places of interest|n.|những danh lam thắng cảnh, điểm tham quan thú vị",
+          "tour guide|n.|hướng dẫn viên du lịch",
+          "What did you see?|expr.|Bạn đã được xem những gì?"
+        ]
+      },
+      20: {
+        title: "Unit 20: Airports",
+        items: [
+          "announce|v.|thông báo (qua loa phát thanh)",
+          "arrivals|n.|khu vực sảnh đến (các chuyến bay hạ cánh)",
+          "bags|n.|hành lý, túi xách",
+          "board (v.)|v.|lên máy bay",
+          "customs|n.|hải quan sân bay",
+          "delayed|adj.|bị trễ giờ, bị hoãn",
+          "departure|n.|sự khởi hành, sảnh đi",
+          "distance|n.|khoảng cách",
+          "efficient|adj.|hiệu quả, nhanh gọn",
+          "escalator|n.|cầu thang cuốn",
+          "facilities|n.|cơ sở vật chất tiện nghi",
+          "fairly|adv.|khá là, tương đối",
+          "flight|n.|chuyến bay",
+          "gate|n.|cổng ra tàu bay",
+          "gifts|n.|quà tặng",
+          "immigration|n.|quầy thủ tục xuất nhập cảnh",
+          "level|n.|tầng (trong tòa nhà nhà ga)",
+          "monitor|n.|màn hình hiển thị thông tin chuyến bay",
+          "parking|n.|bãi đỗ xe",
+          "pleasant|adj.|dễ chịu",
+          "restroom|n.|nhà vệ sinh công cộng",
+          "souvenirs|n.|quà lưu niệm",
+          "suitcases|n.|những chiếc va-li",
+          "terminal|n.|nhà ga hành khách sân bay",
+          "ATM machines|n.|máy rút tiền tự động ATM",
+          "baggage claim|n.|khu vực nhận lại hành lý ký gửi",
+          "car rental|n.|dịch vụ thuê xe ô tô tự lái",
+          "change a baby|phr.|thay tã cho em bé",
+          "check-in counters|n.|các quầy làm thủ tục đăng ký chuyến bay",
+          "currency exchange|n.|quầy thu đổi ngoại tệ",
+          "department stores|n.|các cửa hàng bách hóa lớn",
+          "duty-free shop|n.|cửa hàng miễn thuế",
+          "flight insurance|n.|bảo hiểm chuyến bay",
+          "foot bridge|n.|cầu vượt đi bộ",
+          "freshen up|phr.v.|rửa mặt mũi, chỉnh trang lại cho tỉnh táo",
+          "game center|n.|khu vui chơi giải trí điện tử",
+          "go through security|phr.|đi qua cửa kiểm tra an ninh",
+          "information counter|n.|quầy thông tin giải đáp thắc mắc",
+          "shopping mall|n.|khu trung tâm mua sắm",
+          "shuttle bus|n.|xe buýt trung chuyển giữa các nhà ga"
+        ]
+      },
+      21: {
+        title: "Unit 21: Hotels",
+        items: [
+          "arrange|v.|sắp xếp, thu xếp",
+          "coffeemaker|n.|máy pha cà phê",
+          "complaint|n.|lời phàn nàn, khiếu nại",
+          "confirmation|n.|sự xác nhận đặt phòng",
+          "deluxe|adj.|hạng sang trọng, cao cấp",
+          "deposit|n.|tiền đặt cọc",
+          "double (occupancy)|adj.|(phòng) dành cho hai người ở",
+          "electric|adj.|chạy bằng điện",
+          "facilities|n.|các tiện ích khách sạn",
+          "fan|n.|cái quạt điện",
+          "form|n.|mẫu đơn đăng ký",
+          "hardly|adv.|hầu như không",
+          "identification|n.|giấy tờ tùy thân (CMND/CCCD/Hộ chiếu)",
+          "inconvenient|adj.|bất tiện",
+          "iron|n.|bàn là (bàn ủi)",
+          "mattress|n.|tấm nệm",
+          "mini-fridge|n.|tủ lạnh nhỏ trong phòng nghỉ",
+          "ordinary|adj.|bình thường",
+          "passport|n.|hộ chiếu",
+          "registration|n.|sự đăng ký nhận phòng",
+          "reservation|n.|sự đặt chỗ trước",
+          "sign (v.)|v.|ký tên",
+          "single (occupancy)|adj.|(phòng) đơn dành cho một người",
+          "standard|adj./n.|hạng tiêu chuẩn",
+          "tiny|adj.|nhỏ xíu, chật hẹp",
+          "as hard as a rock|phr.|cứng ngắc như đá (nệm/gối)",
+          "at this hour|phr.|vào giờ giấc này (muộn thế này)",
+          "check in|phr.v.|làm thủ tục nhận phòng",
+          "confirmation number|n.|mã số xác nhận đặt phòng",
+          "driver's license|n.|bằng lái xe",
+          "electrical outlet|n.|ổ cắm điện",
+          "fill out|phr.v.|điền vào (tờ phiếu)",
+          "light sleeper|n.|người dễ tỉnh giấc, khó ngủ khi có tiếng động",
+          "May I help you?|expr.|Tôi có thể giúp gì cho quý khách ạ?",
+          "wake-up call|n.|cuộc gọi báo thức"
+        ]
+      },
+      22: {
+        title: "Unit 22: Traffic",
+        items: [
+          "ambulance|n.|xe cứu thương",
+          "announcement|n.|thông báo",
+          "annual|adj.|hàng năm, thường niên",
+          "avoid|v.|tránh né",
+          "bike|n.|xe đạp",
+          "bus|n.|xe buýt",
+          "city center|n.|trung tâm thành phố",
+          "collision|n.|vụ đâm xe, va chạm",
+          "congestion|n.|sự ùn tắc giao thông",
+          "cyclists|n.|những người đi xe đạp",
+          "display|v./n.|trưng bày, màn trình diễn",
+          "downtown|n./adv.|khu trung tâm phố thị",
+          "fares|n.|giá vé tàu xe",
+          "fine (n.)|n.|tiền phạt vi phạm",
+          "freeway|n.|đường cao tốc",
+          "government|n.|chính phủ, chính quyền",
+          "hundreds|n.|hàng trăm",
+          "improvement|n.|sự cải thiện, nâng cấp",
+          "instead|adv.|thay vì vậy",
+          "lanes|n.|các làn đường giao thông",
+          "light (traffic) (adj.)|adj.|(giao thông) thông thoáng, ít xe",
+          "lower|v./adj.|hạ thấp, giảm xuống",
+          "marathon|n.|cuộc chạy đua ma-ra-tông",
+          "one-way|adj.|một chiều (đường đi)",
+          "pass (a law)|v.|thông qua, ban hành (một đạo luật)",
+          "pollution|n.|sự ô nhiễm",
+          "quality|n.|chất lượng",
+          "rates|n.|mức giá, tỷ lệ",
+          "route|n.|tuyến đường",
+          "smoothly|adv.|một cách trôi chảy, thông suốt",
+          "stalled|adj./v.|bị chết máy giữa đường",
+          "traffic|n.|giao thông",
+          "unusually|adv.|một cách bất thường",
+          "a bunch of (something)|phr.|một đám, một loạt (thứ gì)",
+          "be allowed to (do something)|phr.|được phép (làm gì)",
+          "broken down|adj.|bị hỏng máy nằm đường",
+          "bumper to bumper|phr.|nối đuôi nhau san sát, tắc nghẽn ken đặc",
+          "drive (someone) home|phr.|lái xe đưa (ai đó) về nhà",
+          "give (someone) a ride|phr.|cho (ai đó) đi nhờ xe",
+          "keep away from (a place)|phr.|tránh xa khỏi (khu vực nào)",
+          "keep (something) out|phr.v.|ngăn không cho (xe cộ) đi vào",
+          "parking garage/lot|n.|nhà để xe cao tầng / bãi đỗ xe",
+          "parking space|n.|chỗ trống để đỗ xe",
+          "public transportation|n.|phương tiện giao thông công cộng",
+          "road repair|n.|việc tu sửa mặt đường",
+          "Traffic is backing up.|expr.|Giao thông đang bị ùn ứ kéo dài.",
+          "traffic jam|n.|cảnh kẹt xe, tắc đường",
+          "traffic light (n.)|n.|đèn tín hiệu giao thông",
+          "traffic report|n.|bản tin thông báo tình hình giao thông"
+        ]
+      },
+      23: {
+        title: "Unit 23: Roommates",
+        items: [
+          "arguments|n.|những cuộc tranh cãi",
+          "awful|adj.|tồi tệ, kinh khủng",
+          "baking|v./n.|nướng bánh",
+          "bother|v.|làm phiền",
+          "chemistry|n.|môn hóa học / sự hợp tính nhau",
+          "completely|adv.|hoàn toàn",
+          "considerate|adj.|chu đáo, biết quan tâm",
+          "good-tempered|adj.|tốt tính, ôn hòa, dễ tính",
+          "neat|adj.|gọn gàng, sạch sẽ",
+          "noisy|adj.|ồn ào",
+          "party (v.)|v.|tổ chức tiệc tùng, ăn chơi",
+          "quiet|adj.|yên lặng, trầm tính",
+          "reliable|adj.|đáng tin cậy",
+          "snacks|n.|đồ ăn vặt",
+          "snore|v.|ngáy khi ngủ",
+          "sociable|adj.|hòa đồng, thích giao lưu",
+          "studious|adj.|chăm học, siêng năng",
+          "talkative|adj.|nói nhiều, hoạt ngôn",
+          "thoughtful|adj.|sâu sắc, biết nghĩ cho người khác",
+          "unreliable|adj.|không đáng tin cậy",
+          "a mess|n.|một đống bừa bộn, lộn xộn",
+          "be out of (something)|phr.|hết sạch (đồ dùng/thức ăn gì)",
+          "be over|phr.|kết thúc, chấm dứt",
+          "come by|phr.v.|ghé qua chơi",
+          "do (someone) a favor|phr.|giúp đỡ (ai đó) một việc",
+          "do (something) oneself|phr.|tự tay mình làm (việc gì)",
+          "get along|phr.v.|sống hòa thuận, hợp nhau",
+          "get back|phr.v.|trở về",
+          "go back for (something)|phr.|quay trở lại để lấy (cái gì)",
+          "good cook|n.|người nấu ăn giỏi",
+          "in case|phr.|phòng khi",
+          "invite (someone) over|phr.|mời (ai đó) sang nhà chơi",
+          "keep the place clean|phr.|giữ cho nhà cửa sạch sẽ",
+          "last semester|n.|học kỳ trước",
+          "lose (one's) temper|phr.|nổi nóng, mất bình tĩnh",
+          "my folks (parents)|n.|ông bà bô (bố mẹ của tôi - từ thân mật)",
+          "pick up|phr.v.|dọn dẹp đồ đạc gọn gàng",
+          "phone bill|n.|hóa đơn tiền điện thoại",
+          "put something away|phr.v.|cất đồ đạc vào đúng chỗ",
+          "school work|n.|bài vở ở trường",
+          "sense of humor|n.|khiếu hài hước",
+          "wait around|phr.v.|ngồi chờ đợi mòn mỏi"
+        ]
+      },
+      24: {
+        title: "Unit 24: Travel",
+        items: [
+          "backpack|n.|chiếc ba lô",
+          "completely|adv.|hoàn toàn",
+          "cousin|n.|anh/chị/em họ",
+          "excited|adj.|hào hứng",
+          "flu|n.|bệnh cúm",
+          "hole|n.|cái lỗ, cái hố",
+          "join (someone)|v.|tham gia cùng (ai đó)",
+          "lose|v.|làm mất, thất lạc",
+          "passport|n.|hộ chiếu",
+          "pleased|adj.|vui lòng, hài lòng",
+          "relaxed|adj.|cảm thấy thư giãn, thoải mái",
+          "relaxing|adj.|mang tính thư giãn, dễ chịu",
+          "remove|v.|lấy ra, tháo bỏ",
+          "research|n./v.|nghiên cứu, tìm hiểu",
+          "shore|n.|bờ biển",
+          "slight|adj.|nhẹ, nhỏ (vấn đề/triệu chứng)",
+          "snorkeling|n.|môn lặn biển có ống thở",
+          "spectacular|adj.|hùng vĩ, ngoạn mục, đẹp mắt",
+          "steal|v.|ăn cắp, lấy trộm",
+          "traditional|adj.|truyền thống",
+          "upset|adj.|buồn bực / đau khó chịu (dạ dày)",
+          "vacation|n.|kỳ nghỉ",
+          "volcano|n.|núi lửa",
+          "wallet|n.|ví tiền",
+          "waterfalls|n.|những thác nước",
+          "worried|adj.|lo lắng",
+          "be out of money|phr.|hết sạch tiền",
+          "change one's flight|phr.|đổi lịch chuyến bay",
+          "cost (one) an arm and a leg|idiom|đắt cắt cổ, tốn một khoản tiền cực lớn",
+          "get a chance to (do something)|phr.|có cơ hội được (làm gì)",
+          "get sick|phr.|bị ốm, đổ bệnh",
+          "How was the food?|expr.|Đồ ăn ở đó thế nào?",
+          "How was your trip?|expr.|Chuyến đi của bạn thế nào?",
+          "hula dance|n.|điệu nhảy Hula truyền thống (Hawaii)",
+          "in the rush|phr.|trong lúc vội vã",
+          "keep in touch|phr.|giữ liên lạc nhé",
+          "miss a flight|phr.|bị lỡ một chuyến bay",
+          "see sights|phr.|đi ngắm cảnh, tham quan thắng cảnh",
+          "Sorry I missed your call.|expr.|Xin lỗi vì tôi đã nhỡ cuộc gọi của bạn.",
+          "take photos|phr.|chụp ảnh",
+          "turn up|phr.v.|xuất hiện, tìm thấy lại được"
+        ]
+      }
+    };
+
+    let currentUnit = 1;
+
+    // Render 24 Tab Buttons
+    function renderTabs() {
+      const container = document.getElementById('tabs-container');
+      container.innerHTML = '';
+      for (let i = 1; i <= 24; i++) {
+        const btn = document.createElement('button');
+        btn.className = `tab-btn ${i === currentUnit ? 'active' : ''}`;
+        btn.id = `tab-btn-${i}`;
+        const shortName = rawUnitsData[i].title.split(': ')[1];
+        btn.innerHTML = `Unit ${i}<br><span style="font-size:0.75rem; font-weight:700; opacity:0.9;">${shortName}</span>`;
+        btn.onclick = () => switchUnit(i);
+        container.appendChild(btn);
+      }
+    }
+
+    // Switch Active Unit Tab
+    function switchUnit(unitNum) {
+      currentUnit = unitNum;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById(`tab-btn-${unitNum}`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      document.getElementById('search-input').value = '';
+      renderVocabList(rawUnitsData[unitNum].items);
+    }
+
+    // Render Vocabulary Cards for Selected Unit
+    function renderVocabList(itemsArray) {
+      const unitInfo = rawUnitsData[currentUnit];
+      document.getElementById('current-unit-title').textContent = unitInfo.title;
+      document.getElementById('current-unit-count').textContent = `${itemsArray.length} mục từ vựng`;
+
+      const container = document.getElementById('vocab-container');
+      container.innerHTML = '';
+
+      itemsArray.forEach((rawStr, idx) => {
+        const parts = rawStr.split('|');
+        const word = parts[0] || '';
+        const pos = parts[1] || '';
+        const meaning = parts[2] || '';
+
+        const card = document.createElement('div');
+        card.className = 'vocab-card';
+
+        // Clean text for speech synthesis (remove grammar notes like (v.), (n.), (adj.))
+        const cleanSpeakText = word
+          .replace(/\(v\.\)|\(n\.\)|\(adj\.\)/gi, '')
+          .replace(/\((.*?)\)/g, '$1')
+          .replace(/\//g, ' or ')
+          .trim();
+
+        card.innerHTML = `
+          <div class="vocab-info">
+            <div class="vocab-word-row">
+              <span class="vocab-word">${word}</span>
+              <span class="vocab-pos">${pos}</span>
+            </div>
+            <div class="vocab-meaning">${meaning}</div>
+          </div>
+          <button type="button" class="speak-btn" id="speak-btn-${idx}" title="Nghe phát âm chuẩn Anh-Anh (en-GB)" onclick="speakBritish('${cleanSpeakText.replace(/'/g, "\\'")}', 'speak-btn-${idx}')">
+            🔊
+          </button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Search Filter within Current Unit
+    function filterVocab() {
+      const q = document.getElementById('search-input').value.toLowerCase().trim();
+      const allItems = rawUnitsData[currentUnit].items;
+      if (!q) {
+        renderVocabList(allItems);
+        return;
+      }
+      const filtered = allItems.filter(item => item.toLowerCase().includes(q));
+      renderVocabList(filtered);
+    }
+
+    // Web Speech API - Standard British English (en-GB) Pronunciation
+    let voicesList = [];
+    function loadVoices() {
+      if ('speechSynthesis' in window) {
+        voicesList = window.speechSynthesis.getVoices();
+      }
+    }
+
+    if ('speechSynthesis' in window) {
+      loadVoices();
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+    }
+
+    function speakBritish(text, btnId) {
+      if (!('speechSynthesis' in window)) {
+        alert("Trình duyệt của bạn không hỗ trợ phát âm tự động.");
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-GB';
+      utterance.rate = 0.92;
+
+      // Prioritize authentic British English voices (Google UK English, Microsoft Libby/Sonia/Ryan, Apple Daniel)
+      if (voicesList.length === 0) voicesList = window.speechSynthesis.getVoices();
+      const gbVoice = voicesList.find(v => v.lang === 'en-GB' && (v.name.includes('UK') || v.name.includes('British') || v.name.includes('Daniel') || v.name.includes('Libby') || v.name.includes('Sonia')))
+                   || voicesList.find(v => v.lang === 'en-GB' || v.lang === 'en_GB')
+                   || voicesList.find(v => v.lang.startsWith('en'));
+
+      if (gbVoice) {
+        utterance.voice = gbVoice;
+      }
+
+      const btn = document.getElementById(btnId);
+      if (btn) btn.classList.add('speaking');
+
+      utterance.onend = () => {
+        if (btn) btn.classList.remove('speaking');
+      };
+      utterance.onerror = () => {
+        if (btn) btn.classList.remove('speaking');
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderTabs();
+      switchUnit(1);
+    });
+  </script>
+</body>
+</html>
